@@ -1,18 +1,18 @@
 
-#ifndef TRACERLIB_TRACER_H
-#define TRACERLIB_TRACER_H
+#ifndef TRACERLIB_TIMETRACER_H
+#define TRACERLIB_TIMETRACER_H
 
-#ifdef TRAdCE
-#define GET_MACRO(_0, _1, _2, NAME, ...) NAME
-#define TIME_TRACE(...) GET_MACRO(_0, ##__VA_ARGS__, TIME_TRACE_2, TIME_TRACE_1, TIME_TRACE_0)(__VA_ARGS__)
+#ifdef TRACE
+#define GET_MACRO(_0, _1, NAME, ...) NAME
+#define TIME_TRACE(...) GET_MACRO(_0, ##__VA_ARGS__, TIME_TRACE_1, TIME_TRACE_0)(__VA_ARGS__)
 #define TIME_TRACE_0() TracerLib::TimeTracer _TimeTracer__LINE__(__FILE__,__func__,__LINE__)
-#define TIME_TRACE_1(STRING_TAG) TracerLib::TimeTracer _TimeTracer__LINE__(__FILE__,STRING_TAG,__LINE__)
+#define TIME_TRACE_1(TAG_NAME) TracerLib::TimeTracer _TimeTracer__LINE__(__FILE__,TAG_NAME,__LINE__)
 #define TIME_TRACER_ENABLE(FILENAME) TracerLib::TimeTracer::enable(FILENAME)
 #define TIME_TRACER_DISABLE TracerLib::TimeTracer::disable()
 #define TIME_TRACE_VALUE(NAME, VALUE) TracerLib::TimeTracer::traceQuantity(NAME, VALUE)
 #else
 #define TIME_TRACE()
-#define TIME_TRACE(STRING_TAG) 
+#define TIME_TRACE(TAG_NAME) 
 #define TIME_TRACER_ENABLE(FILENAME)
 #define TIME_TRACER_DISABLE
 #define TIME_TRACE_VALUE(NAME, VALUE)
@@ -340,8 +340,6 @@ void TimeTracer::setPrintToTerminal(bool s)
 {
     m_bPrintToTerminal = s;
 }
-
-
 
 } // namespace TRACERLIB
 
