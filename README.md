@@ -6,8 +6,8 @@ Todo:
 
 1. Fix value tracking.
 2. Create a cmake project
-    2.1. Make it configurable to compiled or header version.
-    2.2. Add omp needed for thread number seamlessly.
+    - Make it configurable to compiled or header version.
+    - Add omp needed for thread number seamlessly.
 3. Fix this documentation.
 
 
